@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.websocket.Session;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
@@ -25,9 +26,11 @@ public class WebsocketPlayer implements ActionProvider {
 
     @Setter
     @Getter
+    @JsonIgnore
     private Session session;
 
     @Getter
+    @JsonIgnore
     private BlockingQueue<String> messages = new ArrayBlockingQueue<String>(QUEUE_LENGTH);
 
     @Getter
